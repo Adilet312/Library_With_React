@@ -1,0 +1,27 @@
+.form-add-chapter{
+     position: relative;
+     top:100px;
+     width:600px;
+     margin: 0 auto;
+     display: flex;
+     background: #eff3f9;
+     flex-direction: row;
+     justify-content: space-around;
+     justify-content: flex-start;
+     flex-wrap: wrap;
+}
+.submit-title{
+  height: 40px;
+  margin:1em;
+  flex:1 0 550px;
+}
+.submit-pages{
+  height: 40px;
+  margin: 1em;
+  flex: 1 0 550px;
+}
+.submit-chapter{
+  height: 40px;
+  margin: 1em;
+  flex:1 0 550px;
+}

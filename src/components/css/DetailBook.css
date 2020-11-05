@@ -1,0 +1,19 @@
+.detail-book{
+  width:100%;
+  height: 100vh;
+  background: linear-gradient(100deg,rgb(103,66,150),rgb(54,28,88));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 2px solid #fff;
+  margin-left: 5px;
+  border-right: 2px solid red;
+  border-top: 2px solid #fff;
+  margin-top: 5px;
+  border-bottom: 2px solid #fff;
+  margin-bottom: 5px;
+}
+h1,p{
+  color: #fff;
+  margin:0 auto;
+}

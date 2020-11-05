@@ -1,6 +1,11 @@
 import React,{useState,useEffect,Fragment} from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Library from './Library/Library.js';
 import Search from './Search/Search.js';
+import Navigation from './Navigation/Navigation.js';
+import DetailBook from './DetailBook/DetailBook.js';
+import AddChapter from './AddChapter/AddChapter.js';
+import Chapters from './Chapters/Chapters.js';
 import './css/App.css';
 import uuid from 'react-uuid';
 import { without } from 'lodash';
@@ -21,21 +26,57 @@ const App = () =>{
     let tempBooks = without(books,book);
     setBooks(tempBooks);
   }
+  const addChapter = (books) => setBooks(books);
     return(
       <Fragment>
-       <div className = 'main'>
-          <header className = 'header'>
-          </header>
-            <div className = 'left'></div>
-            <div className = 'center'>
-              <Search books = {books} deleteBook = {deleteBook}/>
-            </div>
-            <div className = 'right'></div>
-          <footer className = 'footer'></footer>
-       </div>
+       <Router>
+        <Switch>
+             <div className = 'main'>
+                <header className = 'header'>
+                  <Navigation/>
+                </header>
+                  <div className = 'left'></div>
+                  <div className = 'center'>
+                  <Route path = '/addChapter/:bookId' render = {(props) => <AddChapter addChapter = {addChapter} books = {books} bookId = {props.location.pathname.replace('/addChapter/','')}/>}/>
+                  <Route exact path = '/' render = { () => <Search books = {books} deleteBook = {deleteBook}/>}/>
+                  <Route exact = '/chapterList/:bookId' render = {(props) =>{
+                     let id = props.location.pathname.replace('/chapterList/','');
+                     let chapters;
+                     books.forEach( book =>{
+                       if(book.bookId===id){
+                         book.hasOwnProperty('chapters') ? chapters = book.chapters : chapters = ''
+                       }
+                       return book;
+                     });
+                     return (
+
+                       chapters && <Chapters chapters = {chapters}/>
+                     )
+                    }}/>
+                  <Route path='/book/:bookId' render = {(props) =>{
+                     let id = props.location.pathname.replace('/book/','');
+                     let chosenBook;
+                     books.forEach( book =>{
+                       if(book.bookId===id){
+                         chosenBook = book
+                       }
+                       return book;
+                     });
+                     return (
+
+                       <DetailBook title = {chosenBook.title} author = {chosenBook.author} pages = {chosenBook.pages}/>
+                     )
+                    }}/>
+                  </div>
+                  <div className = 'right'></div>
+                <footer className = 'footer'></footer>
+             </div>
+        </Switch>
+       </Router>
       </Fragment>
     )
 
   }
 
 export default App;
+/**/
