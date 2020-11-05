@@ -25,6 +25,8 @@ const AddChapter = ({books,bookId,addChapter}) =>{
       return book;
     })
     addChapter(books)
+    setChapterTitle('');
+    setPages(0)
   }
 
   return(
