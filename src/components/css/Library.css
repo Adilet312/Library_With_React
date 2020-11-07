@@ -29,7 +29,12 @@ ul li .goList{
   right: 110px;
   top:30px;
 }
-ul li span .goTrashcanIcon, .faLinkIcon,.goListIcon{
+ul li .goEdit{
+  position: absolute;
+  right: 140px;
+  top:30px;
+}
+ul li span .goTrashcanIcon, .faLinkIcon,.goListIcon,.goEditIcon{
   color:#fff;
 }
 ul li span .addIcon{

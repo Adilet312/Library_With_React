@@ -4,7 +4,7 @@ import Book from '../Book/Book.js';
 import '../css/Library.css';
 import {GoTrashcan,GoListUnordered} from 'react-icons/go';
 import { GrFormAdd } from 'react-icons/gr';
-import {FaLink} from 'react-icons/fa';
+import {FaLink,FaRegEdit} from 'react-icons/fa';
 const Library = ({books,deleteBook}) =>{
 
   return(
@@ -15,6 +15,7 @@ const Library = ({books,deleteBook}) =>{
           <span className = 'faLink'><Link to = {`/book/${book.bookId}`}><FaLink className = 'faLinkIcon'/></Link></span>
           <span className = 'grFormAdd'><Link to = {`/addChapter/${book.bookId}`}><GrFormAdd className='addIcon'/></Link></span>
           <span className = 'goList'><Link to = {`/chapterList/${book.bookId}`}><GoListUnordered className = 'goListIcon'/></Link></span>
+          <span className = 'goEdit'><Link to = {`/editBook/${book.bookId}`}><FaRegEdit className = 'goEditIcon'/></Link></span>
           </li>)
       }
     </ul>

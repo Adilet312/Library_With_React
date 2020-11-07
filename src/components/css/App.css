@@ -31,7 +31,7 @@ body{
 }
 .footer{
   grid-area: footer;
-  background: linear-gradient(100deg,rgb(103,66,150),rgb(54,28,88));
+  background: #131231
 }
 .select:focus{
   outline: none;
