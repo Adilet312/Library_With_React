@@ -1,0 +1,43 @@
+
+.form-add-chapter{
+     position: relative;
+     top:100px;
+     width:600px;
+     margin: 0 auto;
+     display: flex;
+     background: #fff;
+     flex-direction: row;
+     justify-content: space-around;
+     justify-content: flex-start;
+     flex-wrap: wrap;
+     border-radius: 15px;
+}
+.submit-title{
+  height: 40px;
+  margin:1em;
+  flex:1 0 550px;
+  box-shadow: 0 2px 0 rgba(84,94,111,.2);
+  background: #f8f9f9;
+  border-radius: 15px;
+
+}
+.submit-title:focus,.submit-pages:focus,.submit-chapter:focus{
+  outline: none ;
+
+}
+.submit-pages{
+  height: 40px;
+  margin: 1em;
+  flex: 1 0 550px;
+  box-shadow:  0 2px 0 rgba(84,94,111,.2);
+  background: #f8f9f9;
+  border-radius: 15px;
+}
+.submit-chapter{
+  height: 40px;
+  margin: 1em;
+  flex:1 0 550px;
+  box-shadow: 0 2px 0 rgba(84,94,111,.2);
+  background: #f8f9f9;
+  border-radius: 15px;
+}

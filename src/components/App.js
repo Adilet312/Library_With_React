@@ -5,6 +5,7 @@ import Search from './Search/Search.js';
 import Navigation from './Navigation/Navigation.js';
 import DetailBook from './DetailBook/DetailBook.js';
 import AddChapter from './AddChapter/AddChapter.js';
+import EditBook from './EditBook/EditBook.js';
 import Chapters from './Chapters/Chapters.js';
 import './css/App.css';
 import uuid from 'react-uuid';
@@ -24,6 +25,11 @@ const App = () =>{
   },[]);
   const deleteBook = (book) =>{
     let tempBooks = without(books,book);
+    setBooks(tempBooks);
+  }
+  const editBook = (newBook,oldBook) =>{
+    let tempBooks = without(books,oldBook);
+    tempBooks.push(newBook);
     setBooks(tempBooks);
   }
   const addChapter = (books) => setBooks(books);
@@ -66,6 +72,20 @@ const App = () =>{
 
                        <DetailBook title = {chosenBook.title} author = {chosenBook.author} pages = {chosenBook.pages}/>
                      )
+                    }}/>
+                    <Route path = '/editBook/:bookId' render = {(props) =>{
+                      let id = props.location.pathname.replace('/editBook/','');
+                      let chosenBook;
+                      books.forEach( book =>{
+                        if(book.bookId===id){
+                          chosenBook = book
+                        }
+                        return book;
+                      });
+                      return (
+
+                        <EditBook editBook = {editBook} bookId = {id} editable_title={chosenBook.title} editable_author = {chosenBook.author} editable_pages = {chosenBook.pages}/>
+                      )
                     }}/>
                   </div>
                   <div className = 'right'></div>
